@@ -79,3 +79,12 @@ dist
 
 # IDE
 .idea
+
+todo.txt
+
+.vscode
+
+deploy.sh
+.awspublish
+dist
+.eslintrc.js
