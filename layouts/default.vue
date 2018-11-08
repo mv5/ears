@@ -1,106 +1,74 @@
 <template>
-  <v-app dark>
-    <v-navigation-drawer
-      :mini-variant="miniVariant"
-      :clipped="clipped"
-      v-model="drawer"
-      fixed
-      app
-    >
-      <v-list>
-        <v-list-tile
-          v-for="(item, i) in items"
-          :to="item.to"
-          :key="i"
-          router
-          exact
-        >
-          <v-list-tile-action>
-            <v-icon v-html="item.icon" />
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title v-text="item.title" />
-          </v-list-tile-content>
-        </v-list-tile>
-      </v-list>
-    </v-navigation-drawer>
-    <v-toolbar
-      :clipped-left="clipped"
-      fixed
-      app
-    >
-      <v-toolbar-side-icon @click="drawer = !drawer" />
-      <v-btn
-        icon
-        @click.stop="miniVariant = !miniVariant"
-      >
-        <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'" />
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="clipped = !clipped"
-      >
-        <v-icon>web</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="fixed = !fixed"
-      >
-        <v-icon>remove</v-icon>
-      </v-btn>
-      <v-toolbar-title v-text="title"/>
-      <v-btn
-        icon
-        @click.stop="rightDrawer = !rightDrawer"
-      >
-        <v-icon>menu</v-icon>
-      </v-btn>
+  <v-app >
+    <v-toolbar class="white">
+                <nuxt-link class="link" to="/">
+                  <v-toolbar-title class="title" v-text="title"></v-toolbar-title>
+                </nuxt-link>
+
+    
+          <nuxt-link class="link" to="/about">{{about}}</nuxt-link>
+
+      <LanguagePicker />
     </v-toolbar>
-    <v-content>
-      <v-container>
-        <nuxt />
-      </v-container>
-    </v-content>
-    <v-navigation-drawer
-      :right="right"
-      v-model="rightDrawer"
-      temporary
-      fixed
-    >
-      <v-list>
-        <v-list-tile @click.native="right = !right">
-          <v-list-tile-action>
-            <v-icon light>compare_arrows</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-title>Switch drawer (click me)</v-list-tile-title>
-        </v-list-tile>
-      </v-list>
-    </v-navigation-drawer>
-    <v-footer
-      :fixed="fixed"
-      app
-    >
-      <span>&copy; 2017</span>
-    </v-footer>
+
+    <nuxt />
+
+    <ContactDialog />
+    <Floater />
+    
+    <v-footer class="blue darken-2">
+        <v-layout row wrap align-center>
+          <v-flex xs12>
+            <div class="white--text ml-3">
+              Made with
+              <v-icon class="red--text">favorite</v-icon>
+              by <a class="white--text" href="https://vuetifyjs.com" target="_blank">Vuetify</a>
+              and <a class="white--text" href="https://github.com/vwxyzjn">Costa Huang</a>
+            </div>
+          </v-flex>
+        </v-layout>
+      </v-footer>
   </v-app>
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        clipped: false,
-        drawer: true,
-        fixed: false,
-        items: [
-          { icon: 'apps', title: 'Welcome', to: '/' },
-          { icon: 'bubble_chart', title: 'Inspire', to: '/inspire' }
-        ],
-        miniVariant: false,
-        right: true,
-        rightDrawer: false,
-        title: 'Vuetify.js'
+import LanguagePicker from '~/components/LanguagePicker.vue'
+import Floater from '~/components/Floater.vue'
+import ContactDialog from '~/components/ContactDialog.vue'
+import { mapState } from 'vuex'
+
+export default {
+  components: {
+    LanguagePicker,
+    Floater,
+    ContactDialog
+  },
+  data() {
+    return {
+      title: 'אוזניים',
+      about: 'אודות'
+    }
+  },
+  computed: mapState(['currLang']),
+  watch: {
+    currLang(newLang) {
+      switch (newLang) {
+        case 'en':
+          this.title = 'Ears'
+          this.about = 'About'
+          break
+        case 'he':
+          this.title = 'אוזניים'
+          this.about = 'אודות'
+          break
       }
     }
   }
+}
 </script>
+
+<style scoped>
+.link {
+  margin: 0 20px;
+}
+</style>
