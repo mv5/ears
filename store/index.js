@@ -4,24 +4,13 @@ const createStore = () => {
   return new Vuex.Store({
     state: () => ({
       currLang: 'he',
-      label: 'שפה',
       dialogOpen: false
     }),
     mutations: {
-      changeLang (state, lang) {
-        let label
-        switch(lang){
-            case 'he':
-                label = 'שפה'
-                break;
-            case 'en':
-                label = 'Language'
-                break;
-        }
+      changeLang(state, lang) {
         state.currLang = lang
-        state.label = label
       },
-      toggleDialog(state, isOpen){
+      toggleDialog(state, isOpen) {
         state.dialogOpen = isOpen
       }
     }
