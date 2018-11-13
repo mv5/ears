@@ -88,3 +88,4 @@ deploy.sh
 .awspublish
 dist
 .eslintrc.js
+nuxt.config.js

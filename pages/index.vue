@@ -1,16 +1,27 @@
 <template>
     <v-content>
       <section>
-        <div class="parallax" v-bind:style="{ backgroundImage: `url(${image.sizes.large})`}">
+        <div class="parallax" :style="{ backgroundImage: `url(${image.sizes.large})`}">
           <v-layout
             column
             align-start
             class="white--text"
           >
-            <h1 class="white--text mb-2 display-1 text-xs-center">{{title}}</h1>
-            <div class="subheading mb-3 text-xs-center">{{subtitle}}</div>
+            <h1 
+            class="white--text mb-2" 
+            :class="$vuetify.breakpoint.smAndDown ? 'display-2' : 'display-4'"
+            >
+            {{title }}
+            </h1>
+            <div 
+            class="mb-3"
+            :class="$vuetify.breakpoint.smAndDown ? 'headline' : 'display-2'"
+            >
+            {{subtitle}}
+            </div>
             <v-btn
               class="blue lighten-2 mt-5"
+              :class="$vuetify.breakpoint.smAndDown ? 'title' : 'headline'"
               dark
               large
               @click="openDialog"
@@ -22,6 +33,20 @@
       </section>
 
       <section>
+        <v-layout>
+          <v-flex>      
+             <v-card class="elevation-0 transparent">
+                    <v-card-text 
+                    class="text-xs-center"
+                    :class="$vuetify.breakpoint.smAndDown ? 'subheading' : 'title'"
+                    >
+                     {{about}}
+                    </v-card-text>
+             </v-card>
+          </v-flex>
+        </v-layout>
+      </section>
+      <section>
         <v-layout
           column
           wrap
@@ -30,7 +55,11 @@
         >
           <v-flex xs12 sm4 class="my-3">
             <div class="text-xs-center">
-              <h2 class="headline">The best way to start developing</h2>
+              <h2 
+                :class="$vuetify.breakpoint.smAndDown ? 'display-1' : 'display-2'"
+              >
+              {{ $t('titles.surgeries') }}
+              </h2>
               <span class="subheading">
                 Cras facilisis mi vitae nunc 
               </span>
@@ -91,7 +120,7 @@
       </section>
 
       <section>
-        <v-parallax src="assets/section.jpg" height="380">
+        <div class="parallax" :style="{ backgroundImage: `url(${image.sizes.large})`}" height="380">
           <v-layout column align-center justify-center>
             <div class="headline white--text mb-3 text-xs-center">Web development has never been easier</div>
             <em>Kick-start your application today</em>
@@ -104,7 +133,7 @@
               Get Started
             </v-btn>
           </v-layout>
-        </v-parallax>
+        </div>
       </section>
 
       <section>
@@ -125,7 +154,7 @@
             <v-flex xs12 sm4 offset-sm1>
               <v-card class="elevation-0 transparent">
                 <v-card-title primary-title class="layout justify-center">
-                  <div class="headline">{{details_title}}</div>
+                  <div class="headline">{{ $t('titles.details') }}</div>
                 </v-card-title>
                 <v-card-text>
                   Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
@@ -169,45 +198,22 @@
 <script>
 import { mapState } from 'vuex'
 
-const getPage = async ({ isDev, env, store, app, error }) => {
-  const baseUrl = isDev ? env.localApiHost : env.prodApiHost
-  let { data } = await app.$axios.get(
-    `${baseUrl}/pages?slug=homepage-${store.state.currLang}`
-  )
-  return {
-    ...data[0].acf
-  }
-}
-
 export default {
   async asyncData(context) {
-    return getPage(context)
-  },
-  methods: {
-    setRtl(lang) {
-      let rtl
-      switch (lang) {
-        case 'en':
-          rtl = false
-          break
-        case 'he':
-          rtl = true
-          break
-      }
-      this.$vuetify.rtl = rtl
-    },
-    openDialog() {
-      this.$store.commit('toggleDialog', true)
-    }
+    return context.app.getPageData()
   },
   computed: mapState(['currLang']),
   watch: {
     async currLang(newLang) {
-      let data = await getPage(this.$root.$options.context)
+      let data = await this.$root.$options.context.app.getPageData()
       for (let prop in data) {
         this[prop] = data[prop]
       }
-      this.setRtl(newLang)
+    }
+  },
+  methods: {
+    openDialog() {
+      this.$store.commit('toggleDialog', true)
     }
   }
 }
