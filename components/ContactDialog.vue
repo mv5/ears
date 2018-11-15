@@ -1,58 +1,53 @@
 <template>
-     <v-dialog
-      v-model="dialogOpen"
-      @input="e => toggleDialog()"
-    >
-        <v-card>
-        <v-card-title>
-          <span class="headline">Contact Us</span>
-        </v-card-title>
-        <v-card-text>
-          <v-container grid-list-md>
-            <v-layout wrap>
-              <v-flex xs12 sm6>
-                <v-text-field label="Legal first name*" required></v-text-field>
-              </v-flex>
-            
-              <v-flex xs12 sm6>
-                <v-text-field
-                  label="Legal last name*"
-                  hint="example of persistent helper text"
-                  persistent-hint
-                  required
-                ></v-text-field>
-              </v-flex>
-              <v-flex xs12 sm6>
-                <v-text-field label="Email*" required></v-text-field>
-              </v-flex>
-          
-              <v-flex xs12 sm6>
-                <v-select
-                  :items="['0-17', '18-29', '30-54', '54+']"
-                  label="Age*"
-                  required
-                ></v-select>
-              </v-flex>
-            
-            </v-layout>
-          </v-container>
-          <small>*indicates required field</small>
-            <v-flex xs12>
-                <p> or call 1233457</p>
+  <v-dialog v-model="dialogOpen" @input="e => toggleDialog()">
+    <v-card>
+      <v-card-title class="">
+        <v-layout column align-center>
+          <span class="headline info--text mb-4 text-xs-center">
+            {{ $t('contactDialog.call') }}
+          </span>
+          <a class="success--text phone" href="tel:1234567" :class="$vuetify.breakpoint.smAndDown ? 'subheading' : 'title'">
+            <v-icon>phone_in_talk</v-icon>
+            <span>1234567</span>
+          </a>
+
+        </v-layout>
+      </v-card-title>
+
+      <v-card-text>
+        <v-flex xs12 text-xs-center>
+          <p class="accent--text mt-3 mb-0" :class="$vuetify.breakpoint.smAndDown ? 'body-2' : 'subheading'">{{ $t('contactDialog.details') }}</p>
+        </v-flex>
+
+        <v-container grid-list-md>
+          <v-layout wrap>
+            <v-flex xs12 sm6>
+              <v-text-field :label="$t('contactDialog.firstName') + '*'" required></v-text-field>
             </v-flex>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer></v-spacer>
-            <v-btn
-            color="green darken-1"
-            flat="flat"
-            @click="dialogOpen = false"
-          >
-            SEND
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
+
+            <v-flex xs12 sm6>
+              <v-text-field :label="$t('contactDialog.lastName') + '*'" required></v-text-field>
+            </v-flex>
+            <v-flex xs12 sm6>
+              <v-text-field :label="$t('contactDialog.email') + '*'" required></v-text-field>
+            </v-flex>
+
+            <v-flex xs12 sm6>
+              <v-select :items="['0-17', '18-29', '30-54', '54+']" :label="$t('contactDialog.age') + '*'" required></v-select>
+            </v-flex>
+
+          </v-layout>
+        </v-container>
+        <small>{{ $t('contactDialog.required') }}</small>
+      </v-card-text>
+      <v-card-actions>
+        <v-spacer></v-spacer>
+        <v-btn color="green darken-1" flat="flat" @click="dialogOpen = false">
+          {{ $t('contactDialog.send') }}
+        </v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
 </template>
 
 <script>
@@ -69,6 +64,25 @@ export default {
 </script>
 
 <style>
+@keyframes pump{
+  0%{
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(1.2);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+.phone {
+  text-decoration: none;
+  padding: 5px 10px;
+  animation: pump 2s infinite;
+}
+.phone:hover {
+  background-color: rgb(235, 235, 235);
+}
 .v-dialog {
   width: 500px;
 }
