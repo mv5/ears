@@ -8,5 +8,16 @@
     "titles": {
         "surgeries": "Surgery and Inovation",
         "details": "Contact us"
+    },
+    "contactDialog": {
+        "title": "Contact us",
+        "firstName": "First name",
+        "lastName": "Last name",
+        "email": "Email",
+        "age": "Age",
+        "required": "*required field",
+        "send": "SEND",
+        "call": "for making an appointment and more information call now",
+        "details": "or leave your details and we'll get back to you"
     }
 }
