@@ -1,21 +1,13 @@
 <template>
-      <v-btn
-              color="blue"
-              dark
-              large
-              fixed
-              bottom
-              fab
-              @click="openDialog"
-            >
-              <v-icon>phone_in_talk</v-icon>
-            </v-btn>
+  <v-btn color="blue" dark large fixed bottom fab @click="openDialog">
+    <v-icon>phone_in_talk</v-icon>
+  </v-btn>
 </template>
 
 <script>
 export default {
   methods: {
-    openDialog(){
+    openDialog() {
       this.$store.commit('toggleDialog', true)
     }
   }
@@ -23,5 +15,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>

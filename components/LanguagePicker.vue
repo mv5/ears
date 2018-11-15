@@ -1,15 +1,17 @@
 <template>
-    <div class="lang-container">
-        <v-btn class="lang-btn" depressed flat ripple @click="toggleShowSelection">
-            <v-img class="lang-img" aspect-ratio="1.33" :src="`/flags/${currLang}.svg`" />
-        </v-btn>
-        <div class="lang-options" v-if="showSelection" v-click-outside="hide">
-            <div class="lang-item" v-for="item in items" :key="item.value" @click="handleLang(item.value)">
-                <span class="item-part">{{ item.name }}</span>
-                <span class="item-part"><v-img class="lang-img" :src="`/flags/${item.value}.svg`"/></span>
-            </div>
-        </div>
+  <div class="lang-container">
+    <v-btn class="lang-btn" depressed flat ripple @click="toggleShowSelection">
+      <v-img class="lang-img" aspect-ratio="1.33" :src="`/flags/${currLang}.svg`" />
+    </v-btn>
+    <div class="lang-options" v-if="showSelection" v-click-outside="hide">
+      <div class="lang-item" v-for="item in items" :key="item.value" @click="handleLang(item.value)">
+        <span class="item-part">{{ item.name }}</span>
+        <span class="item-part">
+          <v-img class="lang-img" :src="`/flags/${item.value}.svg`" />
+        </span>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
@@ -87,7 +89,7 @@ export default {
   list-style: none;
   background-color: white;
   transform: translateY(100%);
-  box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.3);
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
 }
 .lang-item {
   display: flex;
@@ -96,12 +98,12 @@ export default {
   width: 8vw;
   cursor: pointer;
 }
-.lang-item:hover{
-    background-color: rgb(235, 235, 235);
+.lang-item:hover {
+  background-color: rgb(235, 235, 235);
 }
-.item-part{
-    flex: 0 0 50%;
-    display: flex;
-    justify-content: center;
+.item-part {
+  flex: 0 0 50%;
+  display: flex;
+  justify-content: center;
 }
 </style>

@@ -1,12 +1,12 @@
 <template>
-  <v-app >
+  <v-app>
     <Header />
 
     <nuxt />
 
     <ContactDialog />
     <Floater />
-    
+
     <Footer />
   </v-app>
 </template>
