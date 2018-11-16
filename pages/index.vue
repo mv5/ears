@@ -27,65 +27,34 @@
         </v-flex>
       </v-layout>
     </section>
+
     <section>
       <v-layout column wrap class="my-5" align-center>
-        <v-flex xs12 sm4 class="my-3">
+        <v-flex xs12 class="my-3">
           <div class="text-xs-center">
             <h2 :class="$vuetify.breakpoint.smAndDown ? 'display-1' : 'display-2'">
-              {{ $t('titles.surgeries') }}
+              {{ $t('titles.problems') }}
             </h2>
-            <span class="subheading">
-              Cras facilisis mi vitae nunc
-            </span>
           </div>
         </v-flex>
         <v-flex xs12>
           <v-container grid-list-xl>
             <v-layout row wrap align-center>
-              <v-flex xs12 md4>
-                <v-card class="elevation-0 transparent">
-                  <v-card-text class="text-xs-center">
-                    <v-icon x-large class="blue--text text--lighten-2">color_lens</v-icon>
-                  </v-card-text>
-                  <v-card-title primary-title class="layout justify-center">
-                    <div class="headline text-xs-center">Material Design</div>
-                  </v-card-title>
-                  <v-card-text>
-                    Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
-                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                    Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti.
-                  </v-card-text>
-                </v-card>
-              </v-flex>
-              <v-flex xs12 md4>
-                <v-card class="elevation-0 transparent">
-                  <v-card-text class="text-xs-center">
-                    <v-icon x-large class="blue--text text--lighten-2">flash_on</v-icon>
-                  </v-card-text>
-                  <v-card-title primary-title class="layout justify-center">
-                    <div class="headline">Fast development</div>
-                  </v-card-title>
-                  <v-card-text>
-                    Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
-                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                    Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti.
-                  </v-card-text>
-                </v-card>
-              </v-flex>
-              <v-flex xs12 md4>
-                <v-card class="elevation-0 transparent">
-                  <v-card-text class="text-xs-center">
-                    <v-icon x-large class="blue--text text--lighten-2">build</v-icon>
-                  </v-card-text>
-                  <v-card-title primary-title class="layout justify-center">
-                    <div class="headline text-xs-center">Completely Open Sourced</div>
-                  </v-card-title>
-                  <v-card-text>
-                    Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
-                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                    Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti.
-                  </v-card-text>
-                </v-card>
+              <v-flex v-for="problem in commonProblems" :key="problem.id" xs12 md4>
+                <nuxt-link :to="{ path: 'problems', query: {id: problem.id}}">
+
+                  <v-card class="elevation-0 transparent">
+                    <v-card-text class="text-xs-center">
+                      <v-icon x-large class="blue--text text--lighten-2">color_lens</v-icon>
+                    </v-card-text>
+                    <v-card-title primary-title class="layout justify-center">
+                      <div class="headline text-xs-center">{{problem.title}}</div>
+                    </v-card-title>
+                    <v-card-text v-html="problem.description">
+                    </v-card-text>
+                  </v-card>
+                </nuxt-link>
+
               </v-flex>
             </v-layout>
           </v-container>
@@ -165,12 +134,34 @@
 
 <script>
 import { mapState } from 'vuex'
+import axios from 'axios'
 
 export default {
+  data() {
+    return {
+      numItems: 3,
+      commonProblems: [],
+      surgeries: [],
+      posts: []
+    }
+  },
+  computed: mapState(['currLang']),
   async asyncData(context) {
     return context.app.getPageData()
   },
-  computed: mapState(['currLang']),
+  async mounted() {
+    const url = this.$root.$options.context.isDev
+      ? process.env.localApiHost
+      : process.env.prodApiHost
+    const { data } = await axios.get(
+      `${url}/problems?per_page=${this.numItems}&lang=${this.currLang}`
+    )
+    this.commonProblems = data.map(item => ({
+      id: item.id,
+      title: item.title.rendered,
+      ...item.acf
+    }))
+  },
   watch: {
     async currLang(newLang) {
       let data = await this.$root.$options.context.app.getPageData()

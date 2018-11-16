@@ -1,11 +1,12 @@
 {
     "logo": "Ears",
     "label": "Language",
+    "company": "EARS Inc",
     "links": {
         "about": "About"
     },
-    "company": "EARS Inc",
     "titles": {
+        "problems": "Common problems",
         "surgeries": "Surgery and Inovation",
         "details": "Contact us"
     },
@@ -19,5 +20,10 @@
         "send": "SEND",
         "call": "for making an appointment and more information call now",
         "details": "or leave your details and we'll get back to you"
+    },
+    "problems": {
+        "description": "Description",
+        "treatment": "Treatment",
+        "surgery": "Linked surgery"
     }
 }

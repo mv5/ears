@@ -1,5 +1,5 @@
 <template>
-  <v-btn color="blue" dark large fixed bottom fab @click="openDialog">
+  <v-btn class="floater" color="blue" dark large fixed fab @click="openDialog">
     <v-icon>phone_in_talk</v-icon>
   </v-btn>
 </template>
@@ -15,4 +15,7 @@ export default {
 </script>
 
 <style scoped>
+  .floater{
+    top: 75vh;
+  }
 </style>
