@@ -1,10 +1,10 @@
 <template>
   <div class="homepage">
     <section
-      class="parallax"  
+      class="parallax midDark lighten-1"  
     >
       <v-container fluid>
-        <v-layout column align-start class="">
+        <v-layout column align-start class="white--text">
           <h1 
             :class="$vuetify.breakpoint.smAndDown ? 'display-2' : 'display-4'" 
             class="mb-2"
@@ -17,56 +17,61 @@
           >
             {{ subtitle }}
           </div>
-            <v-card 
-              :width="$vuetify.breakpoint.smAndDown ? '100%' : '30%'"
-            >
-            <v-card-title
-              :class="$vuetify.breakpoint.smAndDown ? 'headline' : 'display-1'"
-              class="justify-center"
-            >
-              {{ $t('contactDetails.title') }}
-            </v-card-title>
-              <v-layout align-center :column="$vuetify.breakpoint.smAndDown ? true : false">
-                <v-layout justify-center :column="$vuetify.breakpoint.smAndDown ? false : true">
-                  <v-flex xs3 md12 class="mb-2">
-                    <v-tooltip top>
-                      <v-btn
-                        :class="$vuetify.breakpoint.smAndDown ? 'subheading' : 'title'" 
-                        class="blue lighten-2" 
-                        href="tel:1234567"
-                        :large="$vuetify.breakpoint.smAndDown ? false : true"
-                        :medium="$vuetify.breakpoint.smAndDown ? true : false"
-                        fab
-                        slot="activator"
-                      >
-                        <v-icon>phone_in_talk</v-icon>
-                      </v-btn>
-                      <span>{{ $t('contactDetails.phone') }}</span>
-                    </v-tooltip>
-                  </v-flex>
-                  <v-flex xs3 md12>
-                    <v-tooltip top>
-                      <v-btn 
-                        :class="$vuetify.breakpoint.smAndDown ? 'title' : 'headline'" 
-                        class="blue lighten-2"  
-                        :large="$vuetify.breakpoint.smAndDown ? false : true"
-                        :medium="$vuetify.breakpoint.smAndDown ? true : false"
-                        @click="openDialog"
-                        fab
-                        slot="activator"
-                      >
-                        <v-icon class="">email</v-icon>
-                      </v-btn>
-                      <span>{{ $t('contactDetails.email') }}</span>
-                    </v-tooltip>
-                  </v-flex>
-                </v-layout>
-            
-              <v-flex>
-              <ContactDetails />
-              </v-flex>
-            </v-layout>
-          </v-card>
+            <v-hover>
+              <v-card 
+                slot-scope="{ hover }"
+                :width="$vuetify.breakpoint.smAndDown ? '100%' : '30%'"
+                :color="`rgba(255, 255, 255, ${hover ? '1' : '0.75'} )`"
+                class="dark--text"
+              >
+                <v-card-title
+                  :class="$vuetify.breakpoint.smAndDown ? 'headline' : 'display-1'"
+                  class="justify-center"
+                >
+                  {{ $t('contactDetails.title') }}
+                </v-card-title>
+                  <v-layout align-center :column="$vuetify.breakpoint.smAndDown ? true : false">
+                    <v-layout justify-center :column="$vuetify.breakpoint.smAndDown ? false : true">
+                      <v-flex xs3 md12 class="mb-2">
+                        <v-tooltip top>
+                          <v-btn
+                            :class="$vuetify.breakpoint.smAndDown ? 'subheading' : 'title'" 
+                            class="blue lighten-2" 
+                            href="tel:1234567"
+                            :large="$vuetify.breakpoint.smAndDown ? false : true"
+                            :medium="$vuetify.breakpoint.smAndDown ? true : false"
+                            fab
+                            slot="activator"
+                          >
+                            <v-icon>phone_in_talk</v-icon>
+                          </v-btn>
+                          <span>{{ $t('contactDetails.phone') }}</span>
+                        </v-tooltip>
+                      </v-flex>
+                      <v-flex xs3 md12>
+                        <v-tooltip top>
+                          <v-btn 
+                            :class="$vuetify.breakpoint.smAndDown ? 'title' : 'headline'" 
+                            class="blue lighten-2"  
+                            :large="$vuetify.breakpoint.smAndDown ? false : true"
+                            :medium="$vuetify.breakpoint.smAndDown ? true : false"
+                            @click="openDialog"
+                            fab
+                            slot="activator"
+                          >
+                            <v-icon class="">email</v-icon>
+                          </v-btn>
+                          <span>{{ $t('contactDetails.email') }}</span>
+                        </v-tooltip>
+                      </v-flex>
+                    </v-layout>
+                
+                    <v-flex>
+                    <ContactDetails />
+                    </v-flex>
+                  </v-layout>
+              </v-card>
+            </v-hover>
         </v-layout>
       </v-container>
     </section>
