@@ -8,14 +8,14 @@
 export default {
   methods: {
     openDialog() {
-      this.$store.commit('toggleDialog', true)
+      this.$store.commit('toggleDialog', { isOpen: true })
     }
   }
 }
 </script>
 
 <style scoped>
-  .floater{
-    top: 75vh;
-  }
+.floater {
+  top: 75vh;
+}
 </style>

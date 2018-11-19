@@ -31,12 +31,9 @@
                             {{surgery.post_name | decodeUri}}
                         </nuxt-link>
                     </v-card-text>
-
                 </v-flex>
-
             </v-layout>
         </v-container>
-
     </v-card>
 </template>
 
@@ -48,15 +45,6 @@ export default {
     treatment: String,
     surgery: Object,
     translations: Object
-  },
-  data(){
-      return{
-          title: this.title,
-          description: this.description,
-          treatment: this.treatment,
-          surgery: this.surgery,
-          translations: this.translations
-      }
   },
   filters: {
     decodeUri(value) {

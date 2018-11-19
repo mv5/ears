@@ -4,7 +4,9 @@
       <v-toolbar-title class="title" v-text="$t('logo')"></v-toolbar-title>
     </nuxt-link>
 
-    <nuxt-link class="link" to="/about">{{ $t('links.about')}}</nuxt-link>
+    <ul class="menu">
+      <nuxt-link class="link" to="/about" tag="li">{{ $t('links.about')}}</nuxt-link>
+    </ul>
 
     <LanguagePicker />
   </v-toolbar>
@@ -24,7 +26,11 @@ export default {
 </script>
 
 <style scoped>
+.menu {
+  list-style-type: none;
+}
 .link {
   margin: 0 20px;
+  cursor: pointer;
 }
 </style>

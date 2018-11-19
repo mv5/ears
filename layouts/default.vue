@@ -2,10 +2,12 @@
   <v-app>
     <Header />
 
-    <nuxt />
+    <v-content>
+      <nuxt />
+    </v-content>
 
     <ContactDialog />
-    <Floater />
+    <Floater v-if="$route.name !== 'index'"/>
 
     <Footer />
   </v-app>

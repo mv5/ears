@@ -1,5 +1,5 @@
 <template>
-  <v-content>
+  <div class="about">
     <v-layout>
       <v-flex text-xs-center>
         <v-card class="elevation-0 transparent">
@@ -9,5 +9,5 @@
         </v-card>
       </v-flex>
     </v-layout>
-  </v-content>
+  </div>
 </template>

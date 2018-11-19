@@ -7,8 +7,9 @@
     },
     "titles": {
         "problems": "בעיות נפוצות",
-        "surgeries": "ניתוחים וחדשנות",
-        "details": "צרו קשר"
+        "surgeries": "ניתוחים",
+        "details": "צרו קשר",
+        "blog": "בלוג"
     },
     "contactDialog": {
         "title": "צרו קשר",
@@ -19,12 +20,25 @@
         "required": "*שדה חובה",
         "send": "שלח",
         "call": "להזמנת תור ופרטים נוספים התקשרו עכשיו",
-        "details": "או השאירו פרטים ונחזור אליכם"
+        "details": "השאירו פרטים ונחזור אליכם"
     },
     "problems": {
         "description": "תיאור הבעיה",
         "treatment": "טיפול",
         "surgery": "ניתוח מקושר"
+    },
+    "buttons": {
+        "problemsPage": "לכל הבעיות הנפוצות",
+        "surgeriesPage": "לכל הניתוחים",
+        "blogPage": "עמוד הבלוג"
+    },
+    "contactDetails": {
+        "title": "להזמנת תור ופרטים נוספים",
+        "address": {
+            "title": "כתובתנו",
+            "name": "רחוב רחוב 00, עיר עיר"
+        },
+        "phone": "התקשרו אלינו",
+        "email": "שלחו לנו הודעה"
     }
-
 }

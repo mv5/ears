@@ -7,8 +7,9 @@
     },
     "titles": {
         "problems": "Common problems",
-        "surgeries": "Surgery and Inovation",
-        "details": "Contact us"
+        "surgeries": "Surgery",
+        "details": "Contact us",
+        "blog": "Blog"
     },
     "contactDialog": {
         "title": "Contact us",
@@ -19,11 +20,25 @@
         "required": "*required field",
         "send": "SEND",
         "call": "for making an appointment and more information call now",
-        "details": "or leave your details and we'll get back to you"
+        "details": "leave your details and we'll get back to you"
     },
     "problems": {
         "description": "Description",
         "treatment": "Treatment",
         "surgery": "Linked surgery"
+    },
+    "buttons": {
+        "problemsPage": "All common problems",
+        "surgeriesPage": "All surgeries",
+        "blogPage": "All blog posts"
+    },
+    "contactDetails": {
+        "title": "Make an appointment and for more information",
+        "address": {
+            "title": "Our address",
+            "name": "00 street street, city city"
+        },
+        "phone": "Call us",
+        "email": "Message us"
     }
 }

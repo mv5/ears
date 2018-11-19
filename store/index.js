@@ -10,7 +10,7 @@ const createStore = () => {
       changeLang(state, lang) {
         state.currLang = lang
       },
-      toggleDialog(state, isOpen) {
+      toggleDialog(state, { isOpen }) {
         state.dialogOpen = isOpen
       }
     }
