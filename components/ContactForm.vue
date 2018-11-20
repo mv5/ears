@@ -1,7 +1,11 @@
 <template>
-     <v-card :flat="inHomepage ? true : false" :class="inHomepage ? 'transparent' : ''">
+     <v-card 
+      :flat="inHomepage ? true : false" 
+      :class="inHomepage ? 'transparent' : ''"
+     >
       <v-card-title
-        :class="$vuetify.breakpoint.smAndDown ? 'subheading' : 'headline'" 
+        :class="$vuetify.breakpoint.smAndDown ? 'title' : 'headline'" 
+        class="justify-center"
       >
         {{ $t('contactDialog.details') }}
       </v-card-title>
@@ -41,6 +45,16 @@
                 required />
             </v-flex>
 
+            <v-flex
+              xs12
+            >
+              <v-textarea
+                name="input-7-1"
+                :label="$t('contactDialog.message')"
+                value=""
+                hint=""
+              ></v-textarea>
+            </v-flex>
           </v-layout>
         </v-container>
         <small>{{ $t('contactDialog.required') }}</small>
@@ -48,9 +62,9 @@
       <v-card-actions>
         <v-spacer />
         <v-btn 
-          :color="inHomepage ? 'info' : 'green darken-1'" 
-          :flat="inHomepage ? false : true"  
+          color="primary" 
           @click="handleSendClick"
+          :class="$vuetify.breakpoint.smAndDown ? 'body-2' : 'subheading'"
         >
           {{ $t('contactDialog.send') }}
         </v-btn>

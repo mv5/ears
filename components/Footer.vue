@@ -1,5 +1,5 @@
 <template>
-      <v-footer class="blue darken-2">
+      <v-footer class="dark">
         <v-layout row wrap align-center>
           <v-flex xs12>
             <div class="white--text text-xs-center">

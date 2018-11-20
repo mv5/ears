@@ -9,7 +9,8 @@
         "problems": "Common problems",
         "surgeries": "Surgery",
         "details": "Contact us",
-        "blog": "Blog"
+        "blog": "Blog",
+        "about": "Ears medical center and Dr. yona"
     },
     "contactDialog": {
         "title": "Contact us",
@@ -17,10 +18,11 @@
         "lastName": "Last name",
         "email": "Email",
         "age": "Age",
+        "message": "Message",
         "required": "*required field",
         "send": "SEND",
         "call": "for making an appointment and more information call now",
-        "details": "leave your details and we'll get back to you"
+        "details": "Leave your details and we'll get back to you"
     },
     "problems": {
         "description": "Description",
@@ -33,7 +35,7 @@
         "blogPage": "All blog posts"
     },
     "contactDetails": {
-        "title": "Make an appointment and for more information",
+        "title": "Making an appointment and more information",
         "address": {
             "title": "Our address",
             "name": "00 street street, city city"

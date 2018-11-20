@@ -1,10 +1,11 @@
 <template>
   <div class="homepage">
     <section
-      class="parallax midDark lighten-1"  
+      class="parallax dark lighten-2"
+      :style="{ backgroundImage: `url(${image.sizes.large})`}"   
     >
       <v-container fluid>
-        <v-layout column align-start class="white--text">
+        <v-layout column align-start class="light--text text--lighten-2">
           <h1 
             :class="$vuetify.breakpoint.smAndDown ? 'display-2' : 'display-4'" 
             class="mb-2"
@@ -22,21 +23,34 @@
                 slot-scope="{ hover }"
                 :width="$vuetify.breakpoint.smAndDown ? '100%' : '30%'"
                 :color="`rgba(255, 255, 255, ${hover ? '1' : '0.75'} )`"
-                class="dark--text"
+                class="dark--text pb-3"
               >
                 <v-card-title
                   :class="$vuetify.breakpoint.smAndDown ? 'headline' : 'display-1'"
-                  class="justify-center"
+                  class="justify-center dark--text"
                 >
                   {{ $t('contactDetails.title') }}
                 </v-card-title>
-                  <v-layout align-center :column="$vuetify.breakpoint.smAndDown ? true : false">
-                    <v-layout justify-center :column="$vuetify.breakpoint.smAndDown ? false : true">
-                      <v-flex xs3 md12 class="mb-2">
+                  <v-layout 
+                    align-center 
+                    :column="$vuetify.breakpoint.smAndDown ? true : false"
+                  >
+                    <v-layout 
+                      align-center 
+                      justify-center 
+                      :column="$vuetify.breakpoint.smAndDown ? false : true"
+                      style="width: 100%;"
+                    >
+                      <v-flex 
+                        xs3
+                        md12 
+                        :class="$vuetify.breakpoint.smAndDown ? '' : 'mb-2'"
+                        class="text-xs-center"
+                      >
                         <v-tooltip top>
                           <v-btn
                             :class="$vuetify.breakpoint.smAndDown ? 'subheading' : 'title'" 
-                            class="blue lighten-2" 
+                            class="primary lighten-2" 
                             href="tel:1234567"
                             :large="$vuetify.breakpoint.smAndDown ? false : true"
                             :medium="$vuetify.breakpoint.smAndDown ? true : false"
@@ -48,11 +62,11 @@
                           <span>{{ $t('contactDetails.phone') }}</span>
                         </v-tooltip>
                       </v-flex>
-                      <v-flex xs3 md12>
+                      <v-flex xs3 md12 class="text-xs-center">
                         <v-tooltip top>
                           <v-btn 
                             :class="$vuetify.breakpoint.smAndDown ? 'title' : 'headline'" 
-                            class="blue lighten-2"  
+                            class="primary lighten-2"  
                             :large="$vuetify.breakpoint.smAndDown ? false : true"
                             :medium="$vuetify.breakpoint.smAndDown ? true : false"
                             @click="openDialog"
@@ -67,7 +81,7 @@
                     </v-layout>
                 
                     <v-flex>
-                    <ContactDetails />
+                      <ContactDetails />
                     </v-flex>
                   </v-layout>
               </v-card>
@@ -76,15 +90,28 @@
       </v-container>
     </section>
 
-    <section>
+    <section class="light lighten-2">
       <v-layout>
         <v-flex>
-          <v-card class="elevation-0 transparent">
+          <v-card class="elevation-0 transparent dark--text">
+            <v-card-title
+              :class="$vuetify.breakpoint.smAndDown ? 'display-1' : 'display-2'"
+              class="justify-center"
+            >
+              {{ $t('titles.about') }}
+            </v-card-title>
             <v-card-text 
               :class="$vuetify.breakpoint.smAndDown ? 'subheading' : 'title'" 
-              class="text-xs-center"
             >
-              {{ about }}
+              <v-layout justify-space-between wrap>
+                <v-flex xs12 md5 class="mb-2">
+                  {{ about }}       
+                </v-flex>
+                <v-flex xs12 md6>
+                  <v-img src="/the-hospital-of-the-future.jpg"/>
+                </v-flex>
+              </v-layout>
+              
             </v-card-text>
           </v-card>
         </v-flex>
@@ -92,7 +119,7 @@
     </section>
 
     <section>
-      <v-layout column wrap class="my-5" align-center>
+      <v-layout column wrap class="my-2" align-center>
         <v-flex xs12 class="my-3">
           <div class="text-xs-center">
             <h2 :class="$vuetify.breakpoint.smAndDown ? 'display-1' : 'display-2'">
@@ -100,7 +127,7 @@
             </h2>
           </div>
         </v-flex>
-          <v-container d-flex grid-list-xl style="flex-direction: column;">
+          <v-container d-flex grid-list-xl style="flex-direction: column; align-items: center;">
             <v-layout row wrap align-center>
               <v-flex v-for="problem in commonProblems" :key="problem.id" xs12 md4>
                 <nuxt-link 
@@ -113,10 +140,7 @@
                       slot-scope="{ hover }" 
                       :class="`elevation-${hover ? 4 : 1}`" 
                     >
-                      <v-card-text class="text-xs-center">
-                        <v-icon x-large class="blue--text text--lighten-2">color_lens</v-icon>
-                      </v-card-text>
-                      <v-card-title primary-title class="layout justify-center">
+                      <v-card-title primary-title class="justify-center">
                         <div class="headline text-xs-center">{{ problem.title }}</div>
                       </v-card-title>
                       <v-card-text v-html="problem.description" />
@@ -125,8 +149,13 @@
                 </nuxt-link>
               </v-flex>
             </v-layout>
-            <v-btn class="btn-link" color="info">
-              <nuxt-link to="/problems" tag="span">
+            <v-btn class="btn-link white--text lighten-1" color="primary" large>
+              <nuxt-link 
+                to="/problems" 
+                tag="span"
+                :class="$vuetify.breakpoint.smAndDown ? 'body-2' : 'subheading'"
+              >
+
                 {{ $t('buttons.problemsPage') }}
               </nuxt-link>
             </v-btn>
@@ -138,7 +167,7 @@
        :style="{ backgroundImage: `url(${image.sizes.large})`}" 
         class="parallax"
     >
-        <v-layout column wrap class="my-5" align-center>
+        <v-layout column wrap class="my-2" align-center>
           <v-flex xs12 class="my-3">
             <div class="text-xs-center">
               <h2 :class="$vuetify.breakpoint.smAndDown ? 'display-1' : 'display-2'">
@@ -146,7 +175,7 @@
               </h2>
             </div>
           </v-flex>
-            <v-container d-flex grid-list-xl style="flex-direction: column;">
+            <v-container d-flex grid-list-xl style="flex-direction: column; align-items: center;">
               <v-layout row wrap align-center>
                 <v-flex v-for="surgery in surgeries" :key="surgery.id" xs12 md4>
                   <nuxt-link 
@@ -160,10 +189,7 @@
                         :class="`elevation-${hover ? 2 : 0}`" 
                         class="surgery-card"
                       >
-                        <v-card-text class="text-xs-center">
-                          <v-icon x-large class="blue--text text--lighten-2">color_lens</v-icon>
-                        </v-card-text>
-                        <v-card-title primary-title class="layout justify-center">
+                        <v-card-title primary-title class="justify-center">
                           <div class="headline text-xs-center">{{ surgery.title }}</div>
                         </v-card-title>
                         <v-card-text v-html="surgery.description" />
@@ -172,8 +198,12 @@
                   </nuxt-link>
                 </v-flex>
               </v-layout>
-              <v-btn class="btn-link" color="info">
-                <nuxt-link to="/surgeries" tag="span">
+              <v-btn class="btn-link white--text lighten-1" color="primary" large>
+                <nuxt-link 
+                  to="/surgeries" 
+                  tag="span"
+                  :class="$vuetify.breakpoint.smAndDown ? 'body-2' : 'subheading'"
+                >
                   {{ $t('buttons.surgeriesPage') }}
                 </nuxt-link>
               </v-btn>
@@ -182,7 +212,7 @@
     </section>
 
 <section>
-      <v-layout column wrap class="my-5" align-center>
+      <v-layout column wrap class="my-2" align-center>
         <v-flex xs12 class="my-3">
           <div class="text-xs-center">
             <h2 :class="$vuetify.breakpoint.smAndDown ? 'display-1' : 'display-2'">
@@ -190,7 +220,7 @@
             </h2>
           </div>
         </v-flex>
-          <v-container d-flex grid-list-xl style="flex-direction: column;">
+          <v-container d-flex grid-list-xl style="flex-direction: column; align-items: center;">
             <v-layout row wrap align-center>
               <v-flex v-for="post in posts" :key="post.id" xs12 md4>
                 <nuxt-link 
@@ -203,10 +233,7 @@
                       slot-scope="{ hover }" 
                       :class="`elevation-${hover ? 4 : 1}`" 
                     >
-                      <v-card-text class="text-xs-center">
-                        <v-icon x-large class="blue--text text--lighten-2">color_lens</v-icon>
-                      </v-card-text>
-                      <v-card-title primary-title class="layout justify-center">
+                      <v-card-title primary-title class="justify-center">
                         <div class="headline text-xs-center">{{ post.title }}</div>
                       </v-card-title>
                       <v-card-text v-html="post.description" />
@@ -215,8 +242,12 @@
                 </nuxt-link>
               </v-flex>
             </v-layout>
-            <v-btn class="btn-link" color="info">
-              <nuxt-link to="/blog" tag="span">
+            <v-btn class="btn-link white--text lighten-1" color="primary" large>
+              <nuxt-link 
+                to="/blog" 
+                tag="span"
+                :class="$vuetify.breakpoint.smAndDown ? 'body-2' : 'subheading'"
+              >
                 {{ $t('buttons.blogPage') }}
               </nuxt-link>
             </v-btn>
@@ -224,20 +255,22 @@
       </v-layout>
     </section>
 
-    <section>
+    <section class="light lighten-2">
       <v-container grid-list-xl>
-        <v-layout row justify-center class="my-5">
+        <v-layout 
+        :column="$vuetify.breakpoint.smAndDown ? true : false" 
+        :align-center="$vuetify.breakpoint.smAndDown ? true : false" 
+        justify-space-around class="my-2">
           <v-flex xs12 sm5>
            <ContactForm :inHomepage="true"/>
           </v-flex>
-          <v-flex xs12 sm5>
+          <v-flex xs12 sm3>
             <v-card class="elevation-0 transparent">
-              <v-card-title primary-title class="layout justify-center">
-                <div 
-                  :class="$vuetify.breakpoint.smAndDown ? 'subheading' : 'headline'" 
-                >
-                  {{ $t('titles.details') }}
-                </div>
+              <v-card-title 
+                :class="$vuetify.breakpoint.smAndDown ? 'title' : 'headline'" 
+                class="justify-center"
+              >
+                {{ $t('titles.details') }}
               </v-card-title>
               <ContactDetails/>
             </v-card>
@@ -327,9 +360,6 @@ export default {
   display: flex;
   align-items: center;
 }
-.layout {
-  padding: 20px 40px;
-}
 .surgery-card {
   background-color: rgba(255, 255, 255, 0.7);
 }
@@ -346,10 +376,6 @@ export default {
 @media (max-width: 980px) {
   .parallax {
     min-height: 75vh;
-  }
-  .layout {
-    padding: 10px 0;
-    width: 100%;
   }
 }
 </style>

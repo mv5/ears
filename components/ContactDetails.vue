@@ -2,7 +2,7 @@
             <v-list class="transparent">
               <v-list-tile>
                   <v-list-tile-action>
-                    <v-icon class="blue--text text--lighten-2">place</v-icon>
+                    <v-icon class="midDark--text text--lighten-2">place</v-icon>
                   </v-list-tile-action>
                   <v-list-tile-content>
                     <v-list-tile-title 
@@ -14,7 +14,7 @@
             </v-list-tile>
             <v-list-tile>
                   <v-list-tile-action>
-                    <v-icon class="blue--text text--lighten-2">phone</v-icon>
+                    <v-icon class="midDark--text text--lighten-2">phone</v-icon>
                   </v-list-tile-action>
                   <v-list-tile-content>
                     <v-list-tile-title 
@@ -28,7 +28,7 @@
             
                 <v-list-tile>
                   <v-list-tile-action>
-                    <v-icon class="blue--text text--lighten-2">email</v-icon>
+                    <v-icon class="midDark--text text--lighten-2">email</v-icon>
                   </v-list-tile-action>
                   <v-list-tile-content>
                     <v-list-tile-title 
