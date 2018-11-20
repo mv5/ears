@@ -3,7 +3,10 @@
     "label": "שפה",
     "company": "אוזניים בע\"מ",
     "links": {
-        "about": "אודות"
+        "about": "אודות",
+        "surgeries": "ניתוחים",
+        "problems": "בעיות נפוצות",
+        "blog": "בלוג"
     },
     "titles": {
         "problems": "בעיות נפוצות",
@@ -12,22 +15,13 @@
         "blog": "בלוג",
         "about": "על מרכז אוזניים ודר' יונה"
     },
-    "contactDialog": {
-        "title": "צרו קשר",
-        "firstName": "שם פרטי",
-        "lastName": "שם משפחה",
-        "email": "אימייל",
-        "age": "גיל",
-        "message": "הודעה",
-        "required": "*שדה חובה",
-        "send": "שלח",
-        "call": "להזמנת תור ופרטים נוספים התקשרו עכשיו",
-        "details": "השאירו פרטים ונחזור אליכם"
-    },
     "problems": {
         "description": "תיאור הבעיה",
         "treatment": "טיפול",
         "surgery": "ניתוח מקושר"
+    },
+    "surgeries": {
+        "description": "תיאור"
     },
     "buttons": {
         "problemsPage": "לכל הבעיות הנפוצות",
@@ -42,5 +36,17 @@
         },
         "phone": "התקשרו אלינו",
         "email": "שלחו לנו הודעה"
+    },
+    "contactDialog": {
+        "title": "צרו קשר",
+        "firstName": "שם פרטי",
+        "lastName": "שם משפחה",
+        "email": "אימייל",
+        "age": "גיל",
+        "message": "הודעה",
+        "required": "*שדה חובה",
+        "send": "שלח",
+        "call": "להזמנת תור ופרטים נוספים התקשרו עכשיו",
+        "details": "השאירו פרטים ונחזור אליכם"
     }
 }

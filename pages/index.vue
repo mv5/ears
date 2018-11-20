@@ -26,7 +26,7 @@
                 class="dark--text pb-3"
               >
                 <v-card-title
-                  :class="$vuetify.breakpoint.smAndDown ? 'headline' : 'display-1'"
+                  :class="$vuetify.breakpoint.smAndDown ? 'title' : 'headline'"
                   class="justify-center dark--text"
                 >
                   {{ $t('contactDetails.title') }}
@@ -90,7 +90,7 @@
       </v-container>
     </section>
 
-    <section class="light lighten-2">
+    <section class="">
       <v-layout>
         <v-flex>
           <v-card class="elevation-0 transparent dark--text">
@@ -327,7 +327,7 @@ export default {
     async getSomeOfEachType() {
       const app = this.$root.$options.context.app
       this.commonProblems = await app.getSomeByType('problems', this.numItems)
-      this.surgeries = await app.getSomeByType('surgery', this.numItems)
+      this.surgeries = await app.getSomeByType('surgeries', this.numItems)
       this.posts = await app.getSomeByType('posts', this.numItems)
     },
     async getPageData() {

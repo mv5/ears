@@ -3,7 +3,10 @@
     "label": "Language",
     "company": "EARS Inc",
     "links": {
-        "about": "About"
+        "about": "About",
+        "surgeries": "Surgeries",
+        "problems": "Common problems",
+        "blog": "Blog"
     },
     "titles": {
         "problems": "Common problems",
@@ -12,22 +15,13 @@
         "blog": "Blog",
         "about": "Ears medical center and Dr. yona"
     },
-    "contactDialog": {
-        "title": "Contact us",
-        "firstName": "First name",
-        "lastName": "Last name",
-        "email": "Email",
-        "age": "Age",
-        "message": "Message",
-        "required": "*required field",
-        "send": "SEND",
-        "call": "for making an appointment and more information call now",
-        "details": "Leave your details and we'll get back to you"
-    },
     "problems": {
         "description": "Description",
         "treatment": "Treatment",
         "surgery": "Linked surgery"
+    },
+    "surgeries": {
+        "description": "Description"
     },
     "buttons": {
         "problemsPage": "All common problems",
@@ -42,5 +36,17 @@
         },
         "phone": "Call us",
         "email": "Message us"
+    },
+    "contactDialog": {
+        "title": "Contact us",
+        "firstName": "First name",
+        "lastName": "Last name",
+        "email": "Email",
+        "age": "Age",
+        "message": "Message",
+        "required": "*required field",
+        "send": "SEND",
+        "call": "for making an appointment and more information call now",
+        "details": "Leave your details and we'll get back to you"
     }
 }
