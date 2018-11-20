@@ -5,6 +5,9 @@
     </nuxt-link>
 
     <ul class="menu">
+      <nuxt-link class="link" to="/problems" tag="li">{{ $t('links.problems')}}</nuxt-link>
+      <nuxt-link class="link" to="/surgeries" tag="li">{{ $t('links.surgeries')}}</nuxt-link>
+      <nuxt-link class="link" to="/blog" tag="li">{{ $t('links.blog')}}</nuxt-link>
       <nuxt-link class="link" to="/about" tag="li">{{ $t('links.about')}}</nuxt-link>
     </ul>
 
@@ -27,6 +30,7 @@ export default {
 
 <style scoped>
 .menu {
+  display: flex;
   list-style-type: none;
 }
 .link {
