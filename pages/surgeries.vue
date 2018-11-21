@@ -38,6 +38,7 @@ import { mapState } from 'vuex'
 import Surgery from '~/components/Surgery.vue'
 
 export default {
+  transition: 'page',
   components: {
     Surgery
   },

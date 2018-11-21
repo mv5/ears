@@ -11,3 +11,9 @@
     </v-layout>
   </div>
 </template>
+
+<script>
+export default {
+  transition: 'page'
+}
+</script>

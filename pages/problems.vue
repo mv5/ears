@@ -26,6 +26,7 @@ import { mapState } from 'vuex'
 import Problem from '~/components/Problem.vue'
 
 export default {
+  transition: 'page',
   components: {
     Problem
   },

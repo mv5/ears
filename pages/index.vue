@@ -287,6 +287,7 @@ import ContactDetails from '~/components/ContactDetails.vue'
 import ContactForm from '~/components/ContactForm.vue'
 
 export default {
+  transition: 'page',
   components: {
     ContactDetails,
     ContactForm

@@ -38,6 +38,7 @@ import { mapState } from 'vuex'
 import Post from '~/components/Post.vue'
 
 export default {
+  transition: 'page',
   components: {
     Post
   },
