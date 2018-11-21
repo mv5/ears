@@ -46,7 +46,7 @@
         "message": "Message",
         "required": "*required field",
         "send": "SEND",
-        "call": "for making an appointment and more information call now",
+        "call": "Call now",
         "details": "Leave your details and we'll get back to you"
     }
 }

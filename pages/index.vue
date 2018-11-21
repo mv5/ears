@@ -21,9 +21,8 @@
             <v-hover>
               <v-card 
                 slot-scope="{ hover }"
-                :width="$vuetify.breakpoint.smAndDown ? '100%' : '30%'"
                 :color="`rgba(255, 255, 255, ${hover ? '1' : '0.75'} )`"
-                class="dark--text pb-3"
+                class="details-card dark--text pb-3"
               >
                 <v-card-title
                   :class="$vuetify.breakpoint.smAndDown ? 'title' : 'headline'"
@@ -108,7 +107,7 @@
                   {{ about }}       
                 </v-flex>
                 <v-flex xs12 md6>
-                  <v-img src="/the-hospital-of-the-future.jpg"/>
+                  <v-img :src="'/the-hospital-of-the-future.jpg'"/>
                 </v-flex>
               </v-layout>
               
@@ -366,6 +365,9 @@ export default {
 .surgery-card:hover {
   background-color: rgba(255, 255, 255);
 }
+.details-card{
+  width: 30%;
+}
 .btn-link {
   width: fit-content;
   align-self: flex-end;
@@ -376,6 +378,9 @@ export default {
 @media (max-width: 980px) {
   .parallax {
     min-height: 75vh;
+  }
+  .details-card{
+    width: 100%;
   }
 }
 </style>
