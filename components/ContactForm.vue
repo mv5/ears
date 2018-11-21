@@ -62,7 +62,7 @@
       <v-card-actions>
         <v-spacer />
         <v-btn 
-          color="primary" 
+          color="primary lighten-1" 
           @click="handleSendClick"
           :class="$vuetify.breakpoint.smAndDown ? 'body-2' : 'subheading'"
         >
