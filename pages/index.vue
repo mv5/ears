@@ -107,7 +107,7 @@
                   {{ about }}       
                 </v-flex>
                 <v-flex xs12 md6>
-                  <v-img :src="'/the-hospital-of-the-future.jpg'"/>
+                  <v-img src="/homepage/the-hospital-of-the-future.jpg"/>
                 </v-flex>
               </v-layout>
               
