@@ -27,7 +27,7 @@
                         {{$t('problems.surgery')}}
                     </v-card-title>
                     <v-card-text>
-                        <nuxt-link :to="{path: '/surgeries', query: { id: surgery.id }}" :class="$vuetify.breakpoint.smAndDown ? 'body-2' : 'subheading'">
+                        <nuxt-link :to="{path: '/surgeries', query: { id: surgery.ID }}" :class="$vuetify.breakpoint.smAndDown ? 'body-2' : 'subheading'">
                             {{surgery.post_name | decodeUri}}
                         </nuxt-link>
                     </v-card-text>

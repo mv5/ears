@@ -107,7 +107,7 @@
                   {{ about }}       
                 </v-flex>
                 <v-flex xs12 md6>
-                  <v-img src="/homepage/the-hospital-of-the-future.jpg"/>
+                  <v-img src="/homepage/The-hospital-of-the-future.jpg"/>
                 </v-flex>
               </v-layout>
               
@@ -366,7 +366,7 @@ export default {
 .surgery-card:hover {
   background-color: rgba(255, 255, 255);
 }
-.details-card{
+.details-card {
   width: 30%;
 }
 .btn-link {
@@ -380,7 +380,7 @@ export default {
   .parallax {
     min-height: 75vh;
   }
-  .details-card{
+  .details-card {
     width: 100%;
   }
 }
