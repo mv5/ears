@@ -107,4 +107,13 @@ export default {
   display: flex;
   justify-content: center;
 }
+@media (max-width: 980px){
+  .lang-container{
+    align-items: flex-end;
+  }
+  .lang-item{
+    width: 35vw;
+    padding: 10px 0;
+  }
+}
 </style>

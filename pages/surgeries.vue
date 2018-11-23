@@ -27,7 +27,6 @@
             </div>
           </nuxt-link>
         </v-hover>
-
       </v-flex>
     </v-layout>
   </div>

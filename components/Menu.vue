@@ -1,10 +1,14 @@
 <template>
     <div class="menu">
         <ul class="desktop hidden-sm-and-down">
-            <nuxt-link class="link" to="/problems" tag="li">{{ $t('links.problems')}}</nuxt-link>
-            <nuxt-link class="link" to="/surgeries" tag="li">{{ $t('links.surgeries')}}</nuxt-link>
-            <nuxt-link class="link" to="/blog" tag="li">{{ $t('links.blog')}}</nuxt-link>
-            <nuxt-link class="link" to="/about" tag="li">{{ $t('links.about')}}</nuxt-link>
+            <nuxt-link 
+                v-for="(link, index) in links"
+                :key="index"
+                class="link" 
+                :to="`/${link}`"
+                tag="li">
+                    {{ $t(`links.${link}`)}}
+            </nuxt-link>
         </ul>
 
         <v-menu 
@@ -17,17 +21,8 @@
                 <v-icon>more_vert</v-icon>
             </v-btn>
             <v-list>
-                <v-list-tile>
-                    <nuxt-link class="link" to="/problems" tag="li">{{ $t('links.problems')}}</nuxt-link>
-                </v-list-tile>
-                <v-list-tile>
-                    <nuxt-link class="link" to="/surgeries" tag="li">{{ $t('links.surgeries')}}</nuxt-link>
-                </v-list-tile>
-                <v-list-tile>
-                    <nuxt-link class="link" to="/blog" tag="li">{{ $t('links.blog')}}</nuxt-link>
-                </v-list-tile>
-                <v-list-tile>
-                    <nuxt-link class="link" to="/about" tag="li">{{ $t('links.about')}}</nuxt-link>
+                <v-list-tile class="tile" v-for="(link, index) in links" :key="index">
+                    <nuxt-link class="link" :to="`/${link}`">{{ $t(`links.${link}`)}}</nuxt-link>
                 </v-list-tile>
             </v-list>
         </v-menu>
@@ -36,7 +31,15 @@
 </template>
 
 <script>
-export default {}
+export default {
+    data(){
+        return {
+            links: [
+                'about', 'surgeries', 'problems', 'blog'
+            ]
+        }
+    }
+}
 </script>
 
 <style scoped>
@@ -47,6 +50,11 @@ export default {}
 .link {
   margin: 0 20px;
   cursor: pointer;
+  text-decoration: none;
+  padding: 10px 20px;
+}
+.link:hover{
+    background-color: #EFE7AC;
 }
 .menu{
     display: flex;
@@ -54,8 +62,12 @@ export default {}
 }
 @media (max-width: 980px) {
   .v-menu__content {
-      top: 56px !important;
-      left: 0 !important;
+    top: 56px !important;
+  }
+  .link{
+    margin: 0;
+    height: 100%;
+    width: 100%;
   }
 }
 </style>
