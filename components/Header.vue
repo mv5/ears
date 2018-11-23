@@ -1,28 +1,32 @@
 <template>
   <v-toolbar class="white" fixed app>
-    <nuxt-link class="link" to="/">
-      <v-toolbar-title class="title" v-text="$t('logo')"></v-toolbar-title>
-    </nuxt-link>
+    <v-toolbar-title class="title">
+      <nuxt-link class="link" to="/">
+        {{ $t('logo') }}
+      </nuxt-link>
+    </v-toolbar-title>
 
-    <ul class="menu">
-      <nuxt-link class="link" to="/problems" tag="li">{{ $t('links.problems')}}</nuxt-link>
-      <nuxt-link class="link" to="/surgeries" tag="li">{{ $t('links.surgeries')}}</nuxt-link>
-      <nuxt-link class="link" to="/blog" tag="li">{{ $t('links.blog')}}</nuxt-link>
-      <nuxt-link class="link" to="/about" tag="li">{{ $t('links.about')}}</nuxt-link>
-    </ul>
+    <v-spacer class="hidden-md-and-up"></v-spacer>
 
-    <LanguagePicker />
+    <v-toolbar-items>
+      <LanguagePicker />
+
+      <Menu />
+    </v-toolbar-items>
+
   </v-toolbar>
 
 </template>
 
 <script>
 import LanguagePicker from '~/components/LanguagePicker.vue'
+import Menu from '~/components/Menu.vue'
 import { mapState } from 'vuex'
 
 export default {
   components: {
-    LanguagePicker
+    LanguagePicker,
+    Menu
   },
   computed: mapState(['currLang'])
 }

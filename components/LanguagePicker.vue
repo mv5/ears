@@ -82,6 +82,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  height: inherit;
 }
 .lang-options {
   position: absolute;
